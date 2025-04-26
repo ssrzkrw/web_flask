@@ -12,6 +12,8 @@ def angou():
     if request.method == 'POST':
         text = request.form.get("tinko")
         key = request.form.get("manko")
+        if len(key) == 0:
+            return render_template("input_angou.html")
         mapping = [
         "あ", "い", "う", "え", "お",
         "か", "き", "く", "け", "こ",
@@ -75,7 +77,7 @@ def hukugou():
         youso = len(text)
         if youso == 0:
             return render_template("input_hukugou.html")
-            
+
         key = text[youso-3] + text[youso-2] + text[youso-1]
         text = text[:-3]
         for i in text:
