@@ -73,6 +73,9 @@ def hukugou():
         kugiri = ""
         moji = ""
         youso = len(text)
+        if youso == 0:
+            return render_template("input_hukugou.html")
+            
         key = text[youso-3] + text[youso-2] + text[youso-1]
         text = text[:-3]
         for i in text:
